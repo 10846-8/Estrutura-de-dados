@@ -9,30 +9,30 @@ public class ListaOrdenada{
         lista = new LinkedList<Integer>();
     }
 
-    public void adicionaNoInicio(int valor) {
+    public void adicionaInicio(int valor) {
         lista.addFirst(valor);
         insertionSort();
     }
 
-    public void adicionaNoFim(int valor) {
+    public void adicionaFim(int valor) {
         lista.addLast(valor);
         insertionSort();
     }
 
-    public void adicionaNoMeio(int valor, int posicao) {
+    public void adicionaMeio(int valor, int posicao) {
         lista.add(posicao, valor);
         insertionSort();
     }
 
-    public void removeNoInicio() {
+    public void removeInicio() {
         lista.removeFirst();
     }
 
-    public void removeNoFim() {
+    public void removeFim() {
         lista.removeLast();
     }
 
-    public void removeNoMeio(int posicao) {
+    public void removeMeio(int posicao) {
         lista.remove(posicao);
     }
 
@@ -48,6 +48,20 @@ public class ListaOrdenada{
             }
             lista.set(j + 1, aux);
         }
+    }
+    
+    public void insertionSortDecrescente() {
+    	int tamanho = lista.size();
+    	for(int i = 1; i < tamanho; i++) {
+    		int aux = lista.get(i);
+    		int j = i -1;
+    		
+    		while (j >= 0 && lista.get(j) < aux) {
+    			lista.set(j + 1, lista.get(j));
+    			j--;
+    		}
+    		lista.set(j + 1, aux);
+    	}
     }
 
     public LinkedList<Integer> getLista() {
